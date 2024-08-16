@@ -1,0 +1,15 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "react course practice",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/eswarnadh/react-practice)"
+  },
+  "author": "EshwarNadh",
+  "license": "ISC"
+}
