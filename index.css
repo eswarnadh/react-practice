@@ -1,0 +1,313 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #D94354;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.Header .logo {
+    width: 100px;
+    height: auto;
+    border-radius: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.Header .logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(256, 256, 256);
+}
+
+.Nav-Bar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Nav-Bar ul li {
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.Nav-Bar a {
+    text-decoration: none;
+    color: rgb(7, 7, 7);
+    transition: color 0.3s ease;
+}
+
+.Nav-Bar a:hover {
+    color: #fc011a; /* Light pink color on hover */
+}
+
+
+.body {
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo  {
+    width: 200px; /* Set a fixed width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect for the logo image */
+.logo :hover {
+    transform: scale(1.05); /* Slightly enlarge the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+
+
+.Nav-Bar ul {
+    display: flex;
+    list-style-type: none;
+    
+
+}
+.Nav-Bar ul li {
+    font-size: 20px;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.search-box {
+    width: 300px; /* Adjust width as needed */
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 2px solid #EF4F5F; /* Zomato's signature red color */
+    outline: none;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover and focus effect for the search box */
+.search-box:hover,
+.search-box:focus {
+    box-shadow: 0 0 10px rgba(239, 79, 95, 0.3); /* Subtle red glow */
+    border-color: #D94354; /* Slightly darker red on hover */
+}
+
+/* Optional: Zomato-style search button */
+.btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #FC8019; /* Swiggy's orange color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for the Swiggy-style button */
+.btn:hover {
+    background-color: #e67315; /* Slightly darker orange on hover */
+    transform: scale(1.03); /* Slight enlargement on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Active/Pressed effect for the Swiggy-style button */
+.btn:active {
+    background-color: #cc6512; /* Even darker orange when pressed */
+    transform: scale(0.97); /* Slight shrink on press */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Less pronounced shadow */
+}
+
+
+
+/* Style for the filter button */
+.filter-btn {
+    margin: 15px;
+    padding: 10px 20px; /* Added horizontal padding for better appearance */
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: #EF4F5F; /* Zomato's signature red color */
+    color: white; /* White text color for contrast */
+    border: none; /* Remove border */
+    font-size: 16px; /* Adjust font size for better readability */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+/* Hover effect for the filter button */
+.filter-btn:hover {
+    background-color: #D94354; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+/* Active/Pressed effect for the filter button */
+.filter-btn:active {
+    background-color: #C23844; /* Even darker red when button is pressed */
+    transform: scale(0.98); /* Slightly reduces size to mimic a press effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Less pronounced shadow */
+}
+
+
+
+.res-container{
+    padding-left: 50px;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.res-card{
+    padding: 10px;
+    width: 270px;
+    height: auto;
+    font-family: lat;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+    background-color: #f0f0f0;
+
+}
+.res-card:hover{
+    border: 1px solid black;
+}
+
+.res-img{
+    border-radius: 15px;
+    
+    width: 100%;
+    height:auto;
+}
+
+
+.Shimmer-Container{
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    
+    width: 300px;
+    height: 500px;
+    background-color: #f0f0f0;
+    margin: 10px;
+}
+
+/* Style for the Zomato login button */
+.login {
+    padding: 10px 20px; /* Padding for a balanced look */
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #EF4F5F; /* Zomato's signature red color */
+    color: white; /* White text for contrast */
+    border: none; /* No border */
+    font-size: 16px; /* Standard font size */
+    display: flex;
+    justify-content: center; /* Centers text inside the button */
+    align-items: center; /* Centers text vertically */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for the login button */
+.login:hover {
+    background-color: #D94354; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Active/Pressed effect for the login button */
+.login:active {
+    background-color: #C23844; /* Even darker red on press */
+    transform: scale(0.98); /* Slightly shrinks to mimic press effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow on press */
+}
+
+
+.filter{
+    display: flex;
+    align-items: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+}
+
+/* Add this to your CSS file */
+.menu {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.menu p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.menu h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #f44336; /* Swiggy-like primary color */
+}
+
+.menu h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu li:last-child {
+    border-bottom: none;
+}
+
+.menu li span {
+    font-weight: bold;
+    color: #333;
+}
+
+.menu .price {
+    color: #666;
+}
+
