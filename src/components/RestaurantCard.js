@@ -1,34 +1,36 @@
 import { CDN_URL } from "../utils/Constants";
 
-const RestaurantCard =(props) =>{
-    const {resData} = props
-    const {
-        cloudinaryImageId,
-        name,
-        cuisines,
-        avgRating,
-        sla,
-        costForTwo
-    }=resData?.info || {}  //Destructured
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    avgRating,
+    sla,
+    costForTwo,
+  } = resData?.info || {}; // Destructured
 
-    // const cloudinaryBaseURL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-    // const imageUrl = `${cloudinaryBaseURL}${resData.info.cloudinaryImageId}`; we can keep this imageUrl object in the src of the img tag
-
-    return (
-        <div className="res-card">
-            <img className="res-img"
-                src={CDN_URL+cloudinaryImageId}
-                alt="res.img"
-            />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>{sla.slaString}</h4>
-            <h4>{costForTwo}</h4>
-            
+  return (
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <img
+        className="w-full h-48 object-cover"
+        src={CDN_URL + cloudinaryImageId}
+        alt={name}
+      />
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+        <h4 className="text-sm text-gray-600">{cuisines.join(", ")}</h4>
+        <div className="flex justify-between items-center mt-3">
+          <h4 className="text-sm text-gray-800 font-medium">
+            {avgRating} ★
+          </h4>
+          <h4 className="text-sm text-gray-600">{sla.slaString}</h4>
+          <h4 className="text-sm text-gray-800 font-medium">{costForTwo}</h4>
         </div>
-    );
-
-}
+      </div>
+    </div>
+  );
+};
 
 export default RestaurantCard;
