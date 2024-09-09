@@ -7,10 +7,10 @@ const Header =()=>{
     const [btnName, setbtnName] = useState("Login");
 
     return (
-        <div className="flex justify-between items-center p-4 bg-white shadow-lg">
+        <div className="m-2  flex justify-between items-center p-4 bg-white shadow-lg">
             <Link to="/">
                 <img 
-                    className="w-24 h-auto rounded-full transition-transform transform hover:scale-105" 
+                    className="w-32 h-auto rounded-full transition-transform transform hover:scale-105" 
                     alt="app-logo" 
                     src={LOGO_URL}
                 />

@@ -1,31 +1,17 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{PromotedRestaurant} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurants from "../utils/useRestaurants";
 
 const Body = () => {
-  const [ListOfRestaurants, setListOfRestaurants] = useState([]);
-  const [SearchedRestaurants, setSearchedRestaurants] = useState([]);
+  
   const [searchText, setsearchText] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const {ListOfRestaurants, SearchedRestaurants, setSearchedRestaurants} = useRestaurants();
 
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4400802&lng=78.3489168&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-
-    setListOfRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setSearchedRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
+  const RestaurantPromoted = PromotedRestaurant(RestaurantCard);
 
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
@@ -37,13 +23,13 @@ const Body = () => {
   }
 
   return (
-    <div className="body p-4">
+    <div className="body p-6 mx-32 my-9">
       <div className="filter flex justify-between items-center mb-6">
         <div className="search flex items-center space-x-4">
           <input
             type="text"
-            className="search-box p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-            placeholder="Search restaurants"
+            className="search-box p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:italic placeholder:text-slate-400"
+            placeholder="Search  for restaurants"
             value={searchText}
             onChange={(e) => setsearchText(e.target.value)}
           />
@@ -73,10 +59,15 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="res-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {SearchedRestaurants.map((res) => (
           <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+
+            {/* {res.data.promoted ? <RestaurantPromoted resData={res} /> : <RestaurantCard resData={res} />  } */}
+
             <RestaurantCard resData={res} />
+            
+            
           </Link>
         ))}
       </div>
