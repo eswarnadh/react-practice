@@ -1,11 +1,14 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
-    console.log(resInfo);
+    
+    const [showIndex, setshowIndex] = useState(0);
 
     if (resInfo === null) {
         return <Shimmer />;
@@ -16,34 +19,66 @@ const RestaurantMenu = () => {
         cuisines,
         avgRatingString,
         costForTwoMessage,
-        sla: { deliveryTime }
+        sla: { deliveryTime },
+        totalRatingsString
+
     } = resInfo?.cards[2]?.card?.card?.info;
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+
+        const handleAccordionToggle = (index) => {
+            // If clicked accordion is open, close it (set to null)
+            setshowIndex(index === showIndex ? null : index);
+        };
+    
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <div className="mb-6">
-                <h1 className="text-3xl font-bold">{name}</h1>
-                <p className="text-lg text-gray-600">
-                    {cuisines.join(", ")} - {costForTwoMessage}
-                </p>
-                <div className="flex space-x-4 mt-2">
-                    <h3 className="text-lg font-semibold">Rating: {avgRatingString} stars</h3>
-                    <h3 className="text-lg font-semibold">Delivery Time: {deliveryTime} minutes</h3>
-                </div>
-            </div>
 
-            <h2 className="text-2xl font-semibold mb-4">Menu</h2>
-            <ul className="space-y-2">
-                {itemCards?.map((item) => (
-                    <li key={item.card.info.id} className="flex justify-between p-2 border-b border-gray-200">
-                        <span className="text-lg">{item.card.info.name}</span>
-                        <span className="text-lg font-semibold">Rs. {item.card.info.price / 100 || item.card.info.defaultPrice / 100}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <div className="mb-6 text-center">
+                <h1 className="text-3xl font-bold">{name}</h1>
+
+                <div className="p-2 m-4 text-center ">
+                    <div className="flex items-center justify-center mb-2">
+                    <h3 className="font-semibold text-lg">Rating:</h3>
+                    <span className={`px-1  mx-1 text-s rounded-lg font-medium text-white ${
+                        avgRatingString >= 4.0
+                            ? "bg-green-700"
+                            : avgRatingString >= 3.0
+                            ? "bg-orange-500"
+                            : "bg-red-600"
+                        }`} >  {avgRatingString} ★ 
+                        </span>
+                        <h3 className="font-semibold text-black">({totalRatingsString})</h3>
+                    </div>
+                    
+                <div className="text-sm flex items-center justify-center px-2 mx-1"> 
+                <p className="text-lg  font-bold text-orange-600">
+                    {cuisines.join(", ")} 
+                </p>
+                <h3 className="text-lg px-2 font-semibold text-gray-600"> - {costForTwoMessage}</h3>
+                </div>   
+                
+                <h3 className="text-lg font-semibold">Delivery Time: {deliveryTime} minutes</h3>
+                </div>
+
+                {/**categories accordians */}
+                {categories.map(( category, index)=> 
+                <RestaurantCategory 
+                    key = {index} 
+                    data = {category?.card?.card} 
+                    showItems={index===showIndex}
+                    toggleAccordion={() => handleAccordionToggle(index)}
+                    />
+                )
+                    }
+
+
+               
+            </div>
+   
     );
 };
 

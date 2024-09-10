@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
         <h3 className="text-lg font-semibold text-gray-800 truncate">{name}</h3>
         <p className="text-sm text-gray-600 truncate">{cuisines.join(", ")}</p>
         <div className="flex justify-between items-center mt-3">
-          <h4 className="px-2 py-1 text-sm bg-green-600 text-white rounded-md font-medium">
+          <h4 className="">
             {avgRating} ★
           </h4>
           <h4 className="text-sm text-gray-600">{sla.slaString}</h4>

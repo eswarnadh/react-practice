@@ -9,7 +9,7 @@ const Body = () => {
   
   const [searchText, setsearchText] = useState("");
 
-  const {ListOfRestaurants, SearchedRestaurants, setSearchedRestaurants} = useRestaurants();
+  const { ListOfRestaurants, SearchedRestaurants, setSearchedRestaurants} = useRestaurants();
 
   const RestaurantPromoted = PromotedRestaurant(RestaurantCard);
 
@@ -29,7 +29,7 @@ const Body = () => {
           <input
             type="text"
             className="search-box p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:italic placeholder:text-slate-400"
-            placeholder="Search  for restaurants"
+            placeholder="Search  for Flavour....."
             value={searchText}
             onChange={(e) => setsearchText(e.target.value)}
           />
@@ -63,7 +63,7 @@ const Body = () => {
         {SearchedRestaurants.map((res) => (
           <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
 
-            {/* {res.data.promoted ? <RestaurantPromoted resData={res} /> : <RestaurantCard resData={res} />  } */}
+            { /* {res.data.promoted ? <RestaurantPromoted resData={res} /> : <RestaurantCard resData={res} />  } */ }
 
             <RestaurantCard resData={res} />
             

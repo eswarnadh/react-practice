@@ -6,9 +6,9 @@ const useRestaurants = () =>{
     const [SearchedRestaurants, setSearchedRestaurants] = useState([]);
 
     useEffect(()=>{
-        
+
         fetchData();
-          
+
     },[]);
 
     const fetchData = async () => {
@@ -20,10 +20,10 @@ const useRestaurants = () =>{
         
     
         setListOfRestaurants(
-          json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         );
         setSearchedRestaurants(
-          json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         );
       };
 
