@@ -58,10 +58,10 @@ const RestaurantMenu = () => {
                 <p className="text-lg  font-bold text-orange-600">
                     {cuisines.join(", ")} 
                 </p>
-                <h3 className="text-lg px-2 font-semibold text-gray-600"> - {costForTwoMessage}</h3>
+                <h3 className="text-lg px-2 font-semibold text-black">  {costForTwoMessage}</h3>
                 </div>   
                 
-                <h3 className="text-lg font-semibold">Delivery Time: {deliveryTime} minutes</h3>
+                <h3 className="text-md text-gray-700 font-semibold">Delivery Time: {deliveryTime} minutes</h3>
                 </div>
 
                 {/**categories accordians */}
