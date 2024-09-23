@@ -2,6 +2,7 @@ import { CDN_URL } from "../utils/Constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  console.log(resData);
   const {
     cloudinaryImageId,
     name,
@@ -12,7 +13,7 @@ const RestaurantCard = (props) => {
   } = resData?.info || {}; // Destructured
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden  hover:shadow-xl transform transition-all  duration-300">
+    <div data-testid = "restCard" className="bg-white shadow-lg rounded-lg overflow-hidden  hover:shadow-xl transform transition-all  duration-300">
       <img
         className="p-2 rounded-2xl w-full h-52 object-cover"
         src={CDN_URL + cloudinaryImageId}
@@ -20,12 +21,12 @@ const RestaurantCard = (props) => {
       />
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 truncate">{name}</h3>
-        <p className="text-sm text-gray-600 truncate">{cuisines.join(", ")}</p>
+        <p className="text-sm text-gray-600 truncate">{(cuisines && cuisines.length>0) ?cuisines.join(", ") : ["italian","chinese","continental"]}</p>
         <div className="flex justify-between items-center mt-3">
           <h4 className=" bg-green-700 text-white rounded-lg shadow-lg px-3 py-1">
             {avgRating} ★
           </h4>
-          <h4 className="text-sm text-gray-600">{sla.slaString}</h4>
+          <h4 className="text-sm text-gray-600">{sla?.slaString}</h4>
           <h4 className="text-sm text-gray-800 font-medium">{costForTwo}</h4>
         </div>
       </div>

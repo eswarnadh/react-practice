@@ -24,17 +24,17 @@ const User = () => {
     return (
         <div className="user-card p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex flex-col items-center space-y-4">
             {user ? (
-                <>
+                <div className="p-4 m-4">
                     <img 
                         src={user.avatar_url} 
                         alt="User avatar" 
                         className="w-32 h-32 rounded-full border-2 border-gray-300"
                     />
-                    <h2 className="text-xl font-bold">{user.login}</h2>
-                    <p className="text-gray-600">Location: {user.location || 'N/A'}</p>
+                    <h2 className="text-xl font-semibold text-gray-600">{user.login}</h2>
+                    {/* <p className="text-gray-600">Location: {user.location || 'N/A'}</p> */}
                     <p className="text-gray-600">Public Repos: {user.public_repos}</p>
-                    <p className="text-gray-600">Followers: {user.followers}</p>
-                    <p className="text-gray-600">Following: {user.following}</p>
+                    {/* <p className="text-gray-600">Followers: {user.followers}</p>
+                    <p className="text-gray-600">Following: {user.following}</p> */}
                     <Link 
                         to={user.html_url} 
                         target="_blank" 
@@ -43,7 +43,7 @@ const User = () => {
                     >
                         View Profile
                     </Link>
-                </>
+                </div>
             ) : (
                 <p className="text-gray-500">No user data available</p>
             )}

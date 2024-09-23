@@ -14,6 +14,7 @@ const Body = () => {
   const RestaurantPromoted = PromotedRestaurant(RestaurantCard);
 
   const onlineStatus = useOnlineStatus();
+
   if (!onlineStatus) {
     return <h1 className="text-center text-red-500 text-xl mt-10">Check your internet!</h1>;
   }
@@ -29,7 +30,8 @@ const Body = () => {
           <input
             type="text"
             className="search-box p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:italic placeholder:text-slate-400"
-            placeholder="Search  for Flavour....."
+            placeholder="Search for Flavour....."
+            data-testid = "SearchInput"
             value={searchText}
             onChange={(e) => setsearchText(e.target.value)}
           />
